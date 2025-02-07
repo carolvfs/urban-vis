@@ -1,0 +1,22 @@
+.home {
+    background-color: #EAEAEA;
+    height:100vh;
+    width:100vw;
+    box-sizing: border-box;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    overflow: hidden;
+}
+
+.home > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px); /* Account for margins (10px top/bottom) */
+    margin: 10px;
+    padding: 5px;
+    background-color: purple;
+    box-sizing: border-box; /* Ensure padding is included in size */
+    overflow: hidden;       /* Prevent inner content overflow */
+}
