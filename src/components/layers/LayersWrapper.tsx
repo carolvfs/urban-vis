@@ -3,6 +3,7 @@ import { MapboxOverlay } from "@deck.gl/mapbox"
 import { Layer } from "@deck.gl/core"
 
 import buildScatterLayer from "./buildScatterLayer"
+import buildPolygonLayer from "./buildPolygonLayer"
 
 
 interface ILayersWrapper {
@@ -14,11 +15,26 @@ const LayersWrapper = (props: ILayersWrapper) => {
   const overlayRef = useRef<MapboxOverlay | null>(null)
   const [layers, setLayers] = useState<Layer[]>([])
 
+  useEffect(() => {
+    const startTime = performance.now()
+    fetch('http://localhost:5000/test_db')
+        .then(response => response.json()).then(data => {
+          const endTime = performance.now()
+          console.log("data is here")
+          console.log(`Fetch time: ${(endTime - startTime)/1000} seconds`)
+        })
+      
+  },[])
+
   const buildLayers = useCallback(() => {
 
     const scatterLayer = buildScatterLayer()
+    const polygonLayer = buildPolygonLayer()
+    // const mvtLayer = buildMVTLayer()
 
-    const layersArr: Layer[] = [scatterLayer]
+    const layersArr: Layer[] = [scatterLayer,  polygonLayer]
+
+    // const layersArr: Layer[] = [scatterLayer]
     setLayers(layersArr)
 
   },[])

@@ -20,7 +20,7 @@ const Map = () => {
 
     const mapInstance = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: "mapbox://styles/mapbox/navigation-day-v1",
+      style: "mapbox://styles/mapbox/light-v11",//"mapbox://styles/mapbox/navigation-day-v1",
       // center: [-89.12987909766366, 40.09236099826568] as [number, number],
       center: [-74, 40.76] as [number, number],
       zoom: 11,
